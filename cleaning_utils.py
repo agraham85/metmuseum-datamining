@@ -16,11 +16,11 @@ def split_rows(df, delim = "|"):
         o_nums = [o_num for i in range(len(parts))]
         newdf['Object Number'].extend(o_nums)
 
-    for col in cols:
-        print(col, len(newdf[col]))
+    # for col in cols:
+    #     print(col, len(newdf[col]))
 
 
-    #return pd.DataFrame(newdf)
+    return pd.DataFrame(newdf)
 
 
 
