@@ -124,8 +124,10 @@ clean_artist_df = artist_df.copy()
 for col in andrew_artist_df:
     clean_artist_df[col] = andrew_artist_df[col]
 
-
-
+# cleaning mikes columns
+df["Dynasty_clean"] = df["Dynasty"].str.extract("(\d\d)")
+df["Artist End Date_clean"] = df["Artist End Date"].str.extract("(-?\d\d\d\d\|?){1,10}")
+clean_artist_df["Artist End Date_clean"] = clean_artist_df["Artist End Date"].str.extract("(\d\d\d\d)")
 
 
 
