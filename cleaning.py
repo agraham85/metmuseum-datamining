@@ -79,7 +79,11 @@ andrew_df["Country"] = andrew_df["Country"].replace(to_replace = '\sor.*', value
 andrew_df["Country"] = andrew_df["Country"].str.replace(r'([\w\s]+)(\|(\1))+', r'\1')
 andrew_df["Country"] = andrew_df["Country"].replace(to_replace = ',\s?', value = '|', regex = True)
 andrew_df["Country"] = andrew_df["Country"].replace(to_replace = '\|$', value = '', regex = True)
+andrew_df["Country"] = andrew_df["Country"].replace(to_replace = '(n|N)orth[a-z]+|(e|E)ast[a-z]+|(W|w)est[a-z]+|(S|s)outh[a-z]+', value = '', regex = True)
+andrew_df["Country"] = andrew_df["Country"].replace(to_replace = 'U\.S\.A\.|US|United Sates of America', value = 'United States', regex = True)
+andrew_df["Country"] = andrew_df["Country"].replace(to_replace = 'UK', value = 'United Kingdom', regex = True)
 andrew_df["Country"] = andrew_df["Country"].str.strip()
+
 
 
 #General Artist_Andrew cleanup
@@ -108,6 +112,27 @@ country_df = andrew_df.iloc[: , country_col_list]
 country_df = split_rows(country_df)
 
 
+#Cleaning Peters Columns
+
+clean_df = df.copy()
+
+clean_df['AccessionYear'] = clean_df['AccessionYear'].str[:4]
+
+clean_df['Culture'].astype(str)
+clean_df['Culture'].replace('reign. of', '', regex=True, inplace=True)
+clean_df['Culture'].replace('or.*later', '', regex=True, inplace=True)
+clean_df['Culture'].replace('early', '', regex=False, inplace=True)
+clean_df['Culture'].replace('or', '', regex=False, inplace=True)
+clean_df['Culture'].replace('probably', '', regex=False, inplace=True)
+clean_df['Culture'].replace('possibly', '', regex=False, inplace=True)
+clean_df['Culture'].replace('Possibly', '', regex=False, inplace=True)
+clean_df['Culture'].replace(';', '', regex=False, inplace=True)
+clean_df['Culture'].replace('\(.*\)', '', regex=True, inplace=True)
+clean_df['Culture'].replace('\?', '', regex=True, inplace=True)
+clean_df['Culture'] = clean_df['Culture'].dropna().str.strip()
+clean_df['Culture'] = clean_df['Culture'].dropna().str.lower()
+
+
 
 
 
@@ -125,8 +150,8 @@ for col in andrew_artist_df:
     clean_artist_df[col] = andrew_artist_df[col]
 
 # cleaning mikes columns
-df["Dynasty_clean"] = df["Dynasty"].str.extract("(\d\d)")
-df["Artist End Date_clean"] = df["Artist End Date"].str.extract("(-?\d\d\d\d\|?){1,10}")
+clean_df["Dynasty_clean"] = df["Dynasty"].str.extract("(\d\d)")
+clean_df["Artist End Date_clean"] = df["Artist End Date"].str.extract("(-?\d\d\d\d\|?){1,10}")
 clean_artist_df["Artist End Date_clean"] = clean_artist_df["Artist End Date"].str.extract("(\d\d\d\d)")
 
 
