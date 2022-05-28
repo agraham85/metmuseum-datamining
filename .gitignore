@@ -1,8 +1,14 @@
 egypt_colors.jpg
 egypt.png
 proj_env/
+plots/
 MetObjects.txt
 MetObjects.csv
+artist_df.pkl
+city_df.pkl
+clean_artist_df.pkl
+clean_df.pkl
+country_df.pkl
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
