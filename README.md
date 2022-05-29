@@ -11,6 +11,12 @@ This team examined the "MetObjects" data set consisting of data from all the obj
 Data set:
 The dat set had 477,805 rows and 54 columns consisting of mostly text data but also numberical, boolean, and categorical data. The data contains properties related to artwork such as created dates, artist information, what materials the art is made out of, etc...
 
+Other Analysis:
+We were able to find one other analysis of the data set. The premise of the analysis was very similar to our own; an exploratory dive into the data and what needed to be done with the cleaning. 
+Summary link: https://towardsdatascience.com/metropolitan-museum-of-art-data-analysis-and-visualization-7d1d023c68fe
+github link: https://github.com/margaretmz/met-museum-data-analysis
+
+
 
 Logistics:
 The data columns were divided up so each team member attempted to clean 1/3 of the data columns. In this way we attempted to clean the whole data set. This took place over two weeks with weekly meetings. At this point each team member took columns they found interesting and generated visuals. All code updates and cleaning was pushed to a remote gitgub repo.  
